@@ -30,7 +30,7 @@ And all together:
 </context>
 ```
 
-However, both setting and getting context in the same component is pretty pointless.  The real power comes when using one component to set the context and retrieving it in another component.  
+Obviously, both setting and getting context in the same component is pretty pointless.  The real power comes when using one component to set the context and retrieving it in another component.  
 
 Imaging creating a `<special-form>` that can provide data to a `<special-input>` without requiring the use of those components to connect things together.  That's the power of `<context>`.
 
@@ -84,4 +84,6 @@ will render:
 </context>
 ```
 
+### Guaranteed updates
 
+Even if a intermediate component doesn't update, the context will still propagate to any components that are using it.
