@@ -1,0 +1,18 @@
+import { pushContext, emitContext } from '../../context-helper';
+
+class {
+    onMount() {
+        this.mounted = true;
+    }
+    onInput(input) {
+        if (this.mounted) {
+            emitContext(this.elId(), input);
+        }
+    }
+}
+
+$ let popContext = pushContext(out, input.__package, component.elId(), input);
+
+<include(input.renderBody)/>
+
+$ popContext();

@@ -1,0 +1,27 @@
+import { peekContext, subscribeContext } from '../../context-helper';
+
+class {
+    onCreate(input, out) {
+        this.package = input.__package;
+        this.state = { context:peekContext(out, this.package) };
+    }
+    onInput(newInput, out) {
+        this.state = { context:peekContext(out, this.package) };
+        if (this.unsubscribe) {
+            this.unsubscribe();
+            this.unsubscribe = subscribeContext(out, this.package, (context) => {
+                this.state.context = context;
+            });
+        }
+    }
+    onMount() {
+        this.unsubscribe = subscribeContext(out, this.package, (context) => {
+            this.state.context = context;
+        });
+    }
+    onDestroy() {
+        this.unsubscribe();
+    }
+}
+
+<include(input.renderBody, state.context)/>

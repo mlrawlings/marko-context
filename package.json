@@ -1,0 +1,19 @@
+{
+  "name": "marko-context",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/index.test.js"
+  },
+  "author": "Michael Rawlings <ml.rawlings@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lasso-package-root": "^1.0.1",
+    "mitt": "^1.1.3"
+  },
+  "devDependencies": {
+    "marko": "^4.7.1",
+    "mocha": "^4.0.1"
+  }
+}

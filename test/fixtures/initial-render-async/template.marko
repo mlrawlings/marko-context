@@ -1,0 +1,12 @@
+<context name="Frank">
+    <await(_ from Promise.resolve())>
+        <context({ name })>
+            ${name}
+        </context>
+    </await>
+</context>
+<context name="Jane">
+    <context({ name })>
+        ${name}
+    </context>
+</context>
